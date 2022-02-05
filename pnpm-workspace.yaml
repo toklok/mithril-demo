@@ -1,0 +1,9 @@
+packages:
+  # BUILD PACKAGES
+  # These are organized into specific sort order
+  - "build/prettier"
+  - "build/tscopnfig"
+  # PACKAGES
+  # These package will not be published to npm registry
+  - "packages/api"
+  - "packages/app"

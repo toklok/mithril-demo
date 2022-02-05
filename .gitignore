@@ -1,0 +1,8 @@
+# FILES
+pnpm-lock.yaml
+.pnpm-debug.log
+
+# DIRECTORIES
+node_modules
+public
+dist
