@@ -2,7 +2,7 @@
   "extends": "@mpnpm/tsconfig",
   "compilerOptions": {
     "outDir": "./dist",
-    "module": "commonjs",
+    "module": "esnext",
     "target": "esnext",
     "lib": ["esnext"],
     "alwaysStrict": true,
@@ -11,11 +11,7 @@
     "moduleResolution": "node",
     "sourceMap": true,
     "esModuleInterop": true,
-    "types": [
-      "@cloudflare/workers-types",
-      "@types/jest",
-      "@types/service-worker-mock"
-    ]
+    "types": ["@cloudflare/workers-types", "@types/jest", "@types/node"]
   },
   "include": ["src"],
   "exclude": ["node_modules", "dist", "test"]

@@ -11,7 +11,7 @@ import dev from "rollup-plugin-dev";
 import livereload from "rollup-plugin-livereload";
 import bundleInject from "rollup-plugin-bundle-inject";
 
-const projectRootDir = path.resolve(__dirname);
+const projectRootDir = path.resolve(import.meta.url);
 
 /**
  * @type {import('rollup').RollupOptions}

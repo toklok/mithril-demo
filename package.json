@@ -1,7 +1,7 @@
 {
   "name": "mpnpm-demo",
   "version": "0.1.0",
-  "description": "A hello world in mithril.js",
+  "description": "A weather app in mithril.js",
   "main": "index.js",
   "scripts": {
     "dev": "pnpm dev --filter ./packages/",
@@ -17,6 +17,8 @@
   "devDependencies": {
     "@types/sass": "^1.43.1",
     "tslib": "^2.3.1",
+    "@mpnpm/prettier-config": "workspace:^1.0.0",
+    "@mpnpm/tsconfig": "workspace:^1.0.0",
     "typescript": "^4.5.5"
   }
 }

@@ -1,6 +1,7 @@
 # FILES
 pnpm-lock.yaml
 .pnpm-debug.log
+.env
 
 # DIRECTORIES
 node_modules
