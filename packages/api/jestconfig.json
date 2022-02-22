@@ -1,5 +1,11 @@
 {
   "testEnvironment": "miniflare",
+  "extensionsToTreatAsEsm": [".ts"],
+  "globals": {
+    "ts-jest": {
+      "useESM": true
+    }
+  },
   "transform": {
     "^.+\\.(t|j)sx?$": "ts-jest"
   },

@@ -1,6 +1,6 @@
 # @mpnpm-demo
 
-I wanted to create a simple mithril.js app but then was heavily influenced by [@mpnpm](https://github.com/panoply/mithril-pnpm)
+I wanted to create a simple mithril.js app but then was heavily influenced by [@mpnpm](https://github.com/panoply/mithril-pnpm) and I wanted to use Miniflare and integration tests.
 
 ### How to run?
 
