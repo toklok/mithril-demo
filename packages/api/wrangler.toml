@@ -7,7 +7,12 @@ workers_dev = true
 compatibility_date = "2022-02-05"
 
 [build]
-command = "pnpm install && pnpm run build"
+command = "pnpm install && pnpm run build:prod"
 [build.upload]
 format = "modules"
 main = "./index.mjs"
+
+# [secrets]
+# DARKSKY_API_KEY
+# STRIPE_API_KEY
+# FAUNA_SECRET
