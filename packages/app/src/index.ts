@@ -1,21 +1,28 @@
 import m from "mithril";
 
 var Home = {
-    view: function() {
-        return "Welcome"
-    }
-}
+  view: function () {
+    return "Welcome";
+  },
+};
 
+var Signup = {
+  view: function () {
+    return "Signup";
+  },
+};
 
-m.route.prefix = ''
+m.route.prefix = "";
 
 /**
  * @type {m.Route}
  */
-m.route(document.body, '/', {
+m.route(document.body, "/", {
+  /* INDEX -------------------------------------- */
 
-    /* INDEX -------------------------------------- */
-  
-    '/': Home
-})
-// m.render(document.body, "sweet world")
+  "/": Home,
+
+  /* SIGN UP--------------------------------------*/
+
+  "/signup": Signup,
+});

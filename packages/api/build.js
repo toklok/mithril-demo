@@ -9,7 +9,7 @@ const { STRIPE_API_KEY, DARKSKY_API_KEY, FAUNA_SECRET } = process.env
 
 /** @type {build.CommonOptions} */
 const options = {
-  target: 'es2019',
+  target: 'esnext',
   sourcemap: false,
   treeShaking: true,
   minifySyntax: true,

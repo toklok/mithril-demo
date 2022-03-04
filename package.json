@@ -7,13 +7,13 @@
     "dev": "pnpm dev --filter ./packages/",
     "build": "pnpm dev --filter ./packages/",
     "dev:all": "pnpm dev -r --no-sort --workspace-concurrency Infinity",
-    "build:all": "pnpm build -r --stream --filter !./packages/app-mcss --filter ./packages/ --workspace-concurrency Infinity",
+    "build:all": "pnpm build -r --stream --filter ./packages/ --workspace-concurrency Infinity",
+    "format": "prettier --write  '*.{json,js}' 'packages/**/*.{js,ts}' 'packages/*/test/**/*.{js,ts}'",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Joseph Curtis",
   "license": "MIT",
-  "dependencies": {
-  },
+  "dependencies": {},
   "devDependencies": {
     "@types/sass": "^1.43.1",
     "tslib": "^2.3.1",

@@ -1,6 +1,5 @@
 import { Request, Response } from '@miniflare/core'
 import { Miniflare } from 'miniflare'
-import { jest } from '@jest/globals'
 
 declare var global: any
 
@@ -31,6 +30,7 @@ describe('api end point', () => {
       'application/json;charset=UTF-8',
     )
     expect(res).toBeInstanceOf(Response)
+    expect(await res.json()).toEqual({})
   })
 
   test('handle no latitude/longitude from cf object', async () => {
@@ -48,13 +48,32 @@ describe('api end point', () => {
     expect(res.headers.get('content-type')).toBe(
       'application/json;charset=UTF-8',
     )
-    expect(await res.json()).toEqual({ Error: true })
+    expect(await res.json()).toEqual({ geolocate: false })
   })
 
-  test('create customer', async () => {
+  test('create customer with POST', async () => {
     const res = await mf.dispatchFetch(
-      new Request('http://localhost:8787/create-customer', { method: 'POST' }),
+      new Request('http://localhost:8787/create-customer', {
+        body: JSON.stringify({
+          email: 'joseph@testing.com',
+          description: 'Customer 1',
+        }),
+        method: 'POST',
+      }),
     )
     expect(res.status).toBe(200)
+    expect(await res.json()).toEqual({
+      id: 'cust_123',
+      description: 'a very nice person',
+      email: 'testing@emails.com',
+    })
+  })
+
+  test('create customer GET method not allowed', async () => {
+    const res = await mf.dispatchFetch(
+      new Request('http://localhost:8787/create-customer', { method: 'GET' }),
+    )
+    expect(res.status).toBe(405)
+    expect(await res.text()).toBe('Method not allowed')
   })
 })

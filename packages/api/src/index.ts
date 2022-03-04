@@ -1,5 +1,5 @@
-import { weatherNearMe } from '../src/handlers/darksky'
-import { createCustomer } from '../src/handlers/subscriptions/create'
+import { weatherNearMe } from './handlers/weather/darksky'
+import { createCustomer } from './handlers/subscriptions/create'
 // import faunadb from 'faunadb'
 
 // const FAUNA_SECRET = process.env.FAUNA_SECRET!
@@ -9,7 +9,7 @@ import { createCustomer } from '../src/handlers/subscriptions/create'
 // })
 
 export default {
-  async fetch(request: Request) {
+  async fetch(request: Request): Promise<Response> {
     try {
       const url = new URL(request.url)
       switch (url.pathname) {
@@ -18,10 +18,10 @@ export default {
         case '/create-customer':
           return createCustomer(request)
         default:
-          return weatherNearMe(request)
+          return new Response('Not found', { status: 404 })
       }
     } catch (err) {
-      return new Response('Error :(')
+      return new Response('Error', { status: 500 })
     }
   },
 }

@@ -1,5 +1,6 @@
 {
   "extends": "@mpnpm/tsconfig",
+  "include": ["src"],
   "compilerOptions": {
     "outDir": "./dist",
     "module": "esnext",
@@ -13,6 +14,5 @@
     "esModuleInterop": true,
     "types": ["@cloudflare/workers-types", "@types/jest", "@types/node"]
   },
-  "include": ["src"],
   "exclude": ["node_modules", "dist", "test"]
 }

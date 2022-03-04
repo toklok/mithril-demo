@@ -6,11 +6,9 @@
   "description": "API backend for my app to consume",
   "main": "dist/index.mjs",
   "scripts": {
-    "build:prod": "NODE_ENV=production node esbuild.mjs",
-    "build:dev": "NODE_ENV=development node esbuild.mjs",
-    "dev": "miniflare ./dist/index.mjs --watch --debug --port 8000",
+    "build": "node build.js",
+    "dev": "miniflare ./dist/index.mjs --watch --port 8787 --debug --global MINIFLARE=",
     "format": "prettier --write  '*.{json,js}' 'src/**/*.{js,ts}' 'test/**/*.{js,ts}'",
-    "lint": "eslint --max-warnings=0 src && prettier --check '*.{json,js}' 'src/**/*.{js,ts}' 'test/**/*.{js,ts}'",
     "test": "NODE_OPTIONS=--experimental-vm-modules jest --config jestconfig.json --verbose"
   },
   "author": "Joseph Curtis",

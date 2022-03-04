@@ -30,7 +30,6 @@ importers:
       '@cloudflare/workers-types': ^3.0.0
       '@esbuild-plugins/node-globals-polyfill': ^0.1.1
       '@esbuild-plugins/node-modules-polyfill': ^0.1.4
-      '@luncheon/esbuild-plugin-gzip': ^0.1.0
       '@types/jest': ^26.0.23
       '@types/node': ^17.0.16
       '@types/service-worker-mock': ^2.0.1
@@ -56,7 +55,6 @@ importers:
       '@cloudflare/workers-types': 3.3.1
       '@esbuild-plugins/node-globals-polyfill': 0.1.1_esbuild@0.14.23
       '@esbuild-plugins/node-modules-polyfill': 0.1.4_esbuild@0.14.23
-      '@luncheon/esbuild-plugin-gzip': 0.1.0_esbuild@0.14.23
       '@types/jest': 26.0.24
       '@types/node': 17.0.16
       '@types/service-worker-mock': 2.0.1
@@ -760,14 +758,6 @@ packages:
     dependencies:
       '@jridgewell/resolve-uri': 3.0.4
       '@jridgewell/sourcemap-codec': 1.4.10
-    dev: true
-
-  /@luncheon/esbuild-plugin-gzip/0.1.0_esbuild@0.14.23:
-    resolution: {integrity: sha512-xd67Zj2ERUjcyycwOu2xn+PIMWoi/ApHf3ooiYz7+uZsD+0i8psaQ+b5T4B2PBU0FYfgSxYsnwfwqeg70ZKRdw==}
-    peerDependencies:
-      esbuild: '>=0.11.15'
-    dependencies:
-      esbuild: 0.14.23
     dev: true
 
   /@miniflare/cache/2.3.0:

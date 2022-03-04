@@ -5,9 +5,17 @@ export async function weatherNearMe(request: Request | any): Promise<Response> {
     request.cf?.latitude !== undefined ||
     request.cf?.longitude !== undefined
   ) {
+    if (globalThis.MINIFLARE) {
+      return new Response(JSON.stringify({}), {
+        status: 200,
+        headers: {
+          'content-type': 'application/json;charset=UTF-8',
+        },
+      })
+    }
+
     const lat = request.cf?.latitude
     const lng = request.cf?.longitude
-
     const url = new URL(
       `https://api.darksky.net/forecast/${DARKSKY_API_KEY}/${lat},${lng}`,
     ).href
@@ -24,7 +32,7 @@ export async function weatherNearMe(request: Request | any): Promise<Response> {
       },
     })
   }
-  return new Response(JSON.stringify({ Error: true }), {
+  return new Response(JSON.stringify({ geolocate: false }), {
     headers: {
       'content-type': 'application/json;charset=UTF-8',
     },
