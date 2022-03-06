@@ -8,7 +8,7 @@
     "build": "pnpm dev --filter ./packages/",
     "dev:all": "pnpm dev -r --no-sort --workspace-concurrency Infinity",
     "build:all": "pnpm build -r --stream --filter ./packages/ --workspace-concurrency Infinity",
-    "format": "prettier --write  '*.{json,js}' 'packages/**/*.{js,ts}' 'packages/*/test/**/*.{js,ts}'",
+    "format": "prettier --write  '*.{json,js,mjs}' 'packages/**/*.{js,ts,mjs}' 'packages/*/test/**/*.{js,ts}'",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Joseph Curtis",

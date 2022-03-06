@@ -1,10 +1,17 @@
 {
   "extends": "@mpnpm/tsconfig",
+  "include": ["index.ts"],
   "exclude": ["node_modules", "dist", "src/styles"],
-  "include": ["src"],
   "compilerOptions": {
     "outDir": "public",
     "declaration": false,
-    "assumeChangesOnlyAffectDirectDependencies": true
+    "assumeChangesOnlyAffectDirectDependencies": true,
+    "baseUrl": ".",
+    "paths": {
+      "*": ["src/*"],
+      "components/*": ["src/components/*"],
+      "views/*": ["src/views/*"],
+    },
+    "types": ["@types/mithril"]
   }
 }
