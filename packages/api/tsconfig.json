@@ -12,6 +12,12 @@
     "moduleResolution": "node",
     "sourceMap": true,
     "esModuleInterop": true,
+    "baseUrl": ".",
+    "paths": {
+      "*": ["src/*"],
+      "lib/*": ["src/lib/*"],
+      "utils/*": ["src/utils/*"]
+    },
     "types": ["@cloudflare/workers-types", "@types/jest", "@types/node"]
   },
   "exclude": ["node_modules", "dist", "test"]

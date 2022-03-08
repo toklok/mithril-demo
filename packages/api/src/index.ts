@@ -1,12 +1,6 @@
 import { weatherNearMe } from './handlers/weather/darksky'
 import { createCustomer } from './handlers/subscriptions/create'
-// import faunadb from 'faunadb'
-
-// const FAUNA_SECRET = process.env.FAUNA_SECRET!
-
-// const faunaClient = new faunadb.Client({
-//   secret: FAUNA_SECRET,
-// })
+import { createUser } from './handlers/auth'
 
 export default {
   async fetch(request: Request): Promise<Response> {
@@ -15,6 +9,8 @@ export default {
       switch (url.pathname) {
         case '/weather/me':
           return weatherNearMe(request)
+        case '/signup':
+          return createUser(request)
         case '/create-customer':
           return createCustomer(request)
         default:

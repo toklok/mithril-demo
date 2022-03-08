@@ -76,4 +76,21 @@ describe('api end point', () => {
     expect(res.status).toBe(405)
     expect(await res.text()).toBe('Method not allowed')
   })
+
+  test('create user', async () => {
+    const res = await mf.dispatchFetch(
+      new Request('http://localhost:8787/signup', {
+        body: JSON.stringify({
+          email: 'joe@example.com',
+          password: '123456',
+        }),
+        method: 'POST',
+      }),
+    )
+    expect(await res.json()).toEqual({
+      email: 'joe@example.com',
+      password: '123456',
+    })
+    expect(res.status).toBe(200)
+  })
 })
