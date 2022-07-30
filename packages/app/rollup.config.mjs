@@ -29,7 +29,12 @@ export default {
         mithril: ["mithril"],
       },
       plugins: [
-        !process.env.prod && dev({ dirs: ["public"], spa: true }),
+        !process.env.prod &&
+          dev({
+            proxy: [{ from: "/api", to: "http://localhost:8787" }],
+            dirs: ["public"],
+            spa: true,
+          }),
         !process.env.prod && livereload("public"),
         !process.env.prod && minify(),
       ],

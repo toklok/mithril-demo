@@ -8,7 +8,8 @@
   "exports": "./public/index.js",
   "scripts": {
     "dev": "rollup -c -w",
-    "build": "rollup -c --environment prod"
+    "build": "rollup -c --environment prod",
+    "format": "prettier --write  '*.{json,js}' 'src/**/*.{js,ts}'"
   },
   "author": "Joseph Curtis",
   "license": "MIT",

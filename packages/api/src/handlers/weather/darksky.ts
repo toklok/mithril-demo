@@ -5,7 +5,7 @@ export async function weatherNearMe(request: Request | any): Promise<Response> {
     request.cf?.latitude !== undefined ||
     request.cf?.longitude !== undefined
   ) {
-    if (globalThis.MINIFLARE) {
+    if (MINIFLARE) {
       return new Response(JSON.stringify({}), {
         status: 200,
         headers: {

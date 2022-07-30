@@ -11,7 +11,13 @@ export async function customFetch(url: string, params: any): Promise<any> {
   return Promise.race([abortPromise, fetch(url, params)])
 }
 
-export function getFaunaError(error: unknown) {
+interface IFaunaStatus {
+  code: string
+  description: string
+  status: number
+}
+
+export function getFaunaError(error: unknown): IFaunaStatus {
   const { code, description } = error.requestResult.responseContent.errors[0]
   let status
 
