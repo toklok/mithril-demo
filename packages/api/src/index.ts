@@ -1,6 +1,6 @@
 import { weatherNearMe } from './handlers/weather/darksky'
 import { createCustomer } from './handlers/subscriptions/create'
-import { createUser } from './handlers/auth'
+import { createUser, loginUser, logoutUser, secret } from './handlers/auth'
 
 export default {
   async fetch(request: Request): Promise<Response> {
@@ -11,8 +11,12 @@ export default {
           return weatherNearMe(request)
         case '/signup':
           return createUser(request)
+        case '/signin':
+          return loginUser(request)
         case '/create-customer':
           return createCustomer(request)
+        case '/secret':
+          return secret(request)
         default:
           return new Response('Not found', { status: 404 })
       }

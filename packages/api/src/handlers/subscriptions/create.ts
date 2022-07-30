@@ -1,14 +1,19 @@
-const STRIPE_API_KEY = process.env.STRIPE_API_KEY!
-
 import Stripe from 'stripe'
+
+import { IStripeUsers } from 'types/main.interface'
+
+const STRIPE_API_KEY = process.env.STRIPE_API_KEY!
 
 export const stripe = new Stripe(STRIPE_API_KEY, {
   httpClient: Stripe.createFetchHttpClient(),
   apiVersion: '2020-08-27',
 })
 
+/**
+ * Create customer in Stripe
+ */
 export async function createCustomer(request: Request): Promise<Response> {
-  if (globalThis.MINIFLARE && request.method === 'POST') {
+  if (MINIFLARE && request.method === 'POST') {
     return new Response(
       JSON.stringify({
         id: 'cust_123',
@@ -19,7 +24,7 @@ export async function createCustomer(request: Request): Promise<Response> {
   }
 
   if (request.method === 'POST') {
-    const { email, description } = await request.json()
+    const { email, description } = await request.json<IStripeUsers>()
     try {
       const customer = await stripe.customers.create({
         email: email,

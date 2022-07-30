@@ -1,7 +1,7 @@
-import m, { route } from "mithril";
+import m from "mithril";
 
-export const SignupForm: m.Component<{ actions }> = {
-  view: ({ attrs: { actions } }) => {
+export const SignInForm: m.Component<{ state; actions }> = {
+  view: ({ attrs: { state, actions } }) => {
     return m(
       "form",
       {
@@ -18,7 +18,7 @@ export const SignupForm: m.Component<{ actions }> = {
 
           return m
             .request({
-              url: "/api/signup",
+              url: "/api/signin",
               method: "POST",
               body,
             })
@@ -26,29 +26,16 @@ export const SignupForm: m.Component<{ actions }> = {
               if (localStorage !== undefined) {
                 localStorage.setItem("fauna_secret", response);
               }
-              actions.isLoggedIn(true);
               m.route.set("/");
             });
         },
       },
       [
-        m("label.input", "first name"),
-        m("input", {
-          type: "text",
-          name: "first_name",
-          placeholder: "First Name",
-        }),
-        m("label.input", "last name"),
-        m("input", {
-          type: "text",
-          name: "last_name",
-          placeholder: "Last Name",
-        }),
         m("label.input", "email"),
         m("input", {
           type: "email",
           name: "email",
-          placeholder: "Email Address",
+          placeholder: "Email",
         }),
         m("label.input", "password"),
         m("input", {
@@ -56,8 +43,7 @@ export const SignupForm: m.Component<{ actions }> = {
           name: "password",
           placeholder: "Password",
         }),
-        m("button", "Sign up"),
-        m("a", { href: "/" }, "Cancel"),
+        m("button", "Sign in"),
       ]
     );
   },
