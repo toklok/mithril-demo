@@ -28,7 +28,7 @@
     "rollup-plugin-livereload": "^2.0.5",
     "esbuild": "^0.14.23",
     "node-sass": "^7.0.1",
-    "postcss": "^8.4.5",
+    "postcss": "^8.4.31",
     "rollup": "^2.66.0",
     "rollup-plugin-esbuild": "^4.8.2",
     "rollup-plugin-postcss": "^4.0.2",
